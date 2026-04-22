@@ -35,6 +35,8 @@ interface CreateBookRequestBody {
   publicationYear?: number | null;
   isbn?: string;
   category?: string | null;
+  pageCount?: number | null;
+  language?: string | null;
 }
 
 /** 書籍更新リクエストボディ */
@@ -45,6 +47,8 @@ interface UpdateBookRequestBody {
   publicationYear?: number | null;
   isbn?: string;
   category?: string | null;
+  pageCount?: number | null;
+  language?: string | null;
 }
 
 /** 蔵書コピー登録リクエストボディ */
@@ -96,6 +100,8 @@ export function createBookController(bookService: BookService): Router {
       publicationYear: body.publicationYear ?? null,
       isbn: body.isbn ?? '',
       category: body.category ?? null,
+      pageCount: body.pageCount ?? null,
+      language: body.language ?? null,
     };
 
     const result = await bookService.createBook(input);
@@ -124,6 +130,8 @@ export function createBookController(bookService: BookService): Router {
       ...(body.publicationYear !== undefined && { publicationYear: body.publicationYear }),
       ...(body.isbn !== undefined && { isbn: body.isbn }),
       ...(body.category !== undefined && { category: body.category }),
+      ...(body.pageCount !== undefined && { pageCount: body.pageCount }),
+      ...(body.language !== undefined && { language: body.language }),
     };
 
     const result = await bookService.updateBook(bookId, input);

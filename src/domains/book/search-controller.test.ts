@@ -47,6 +47,8 @@ function createTestBook(overrides?: Partial<Book>): Book {
     publicationYear: 2024,
     isbn: '9784123456789',
     category: 'Fiction',
+    pageCount: null,
+    language: null,
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01'),
     ...overrides,
