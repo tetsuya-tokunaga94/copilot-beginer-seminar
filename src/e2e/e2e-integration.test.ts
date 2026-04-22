@@ -184,6 +184,8 @@ function createTestBook(overrides?: Partial<Book>): Book {
     publicationYear: 2024,
     isbn: '9784101010014', // 有効なISBN-13
     category: 'プログラミング',
+    pageCount: null,
+    language: null,
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01'),
     ...overrides,

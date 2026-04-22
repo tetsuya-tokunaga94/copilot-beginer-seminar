@@ -176,6 +176,23 @@ ALTER TABLE books ALTER COLUMN publisher SET NOT NULL;
 }
 
 /**
+ * Add page_count and language columns to books table migration
+ */
+export function addPageCountAndLanguageToBooksMigration(): Migration {
+  return createMigration({
+    name: '009_add_page_count_and_language_to_books',
+    up: `
+ALTER TABLE books ADD COLUMN IF NOT EXISTS page_count INTEGER;
+ALTER TABLE books ADD COLUMN IF NOT EXISTS language VARCHAR(100);
+`,
+    down: `
+ALTER TABLE books DROP COLUMN IF EXISTS page_count;
+ALTER TABLE books DROP COLUMN IF EXISTS language;
+`,
+  });
+}
+
+/**
  * Get all migrations in order
  */
 export function getAllMigrations(): Migration[] {
@@ -188,5 +205,6 @@ export function getAllMigrations(): Migration[] {
     createOverdueRecordsTableMigration(),
     createFullTextSearchIndexMigration(),
     alterBooksPublisherNotNullMigration(),
+    addPageCountAndLanguageToBooksMigration(),
   ];
 }

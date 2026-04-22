@@ -23,6 +23,8 @@ const mockBooks: readonly Book[] = [
     publicationYear: 2024,
     isbn: '9784123456789',
     category: 'プログラミング',
+    pageCount: null,
+    language: null,
     createdAt: '2024-01-01T00:00:00.000Z',
     updatedAt: '2024-01-01T00:00:00.000Z',
   },
@@ -34,6 +36,8 @@ const mockBooks: readonly Book[] = [
     publicationYear: 2023,
     isbn: '9784987654321',
     category: 'プログラミング',
+    pageCount: null,
+    language: null,
     createdAt: '2024-02-01T00:00:00.000Z',
     updatedAt: '2024-02-01T00:00:00.000Z',
   },
@@ -124,6 +128,8 @@ describe('BooksPage', () => {
         publicationYear: null,
         isbn: '9781234567890',
         category: null,
+        pageCount: null,
+        language: null,
         createdAt: '2024-03-01T00:00:00.000Z',
         updatedAt: '2024-03-01T00:00:00.000Z',
       };
@@ -149,6 +155,8 @@ describe('BooksPage', () => {
           publicationYear: null,
           isbn: '9781234567890',
           category: null,
+          pageCount: null,
+          language: null,
         });
       });
     });
@@ -258,6 +266,8 @@ describe('BooksPage', () => {
           publicationYear: 2024,
           isbn: '9784123456789',
           category: 'プログラミング',
+          pageCount: null,
+          language: null,
         });
       });
     });

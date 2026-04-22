@@ -47,6 +47,8 @@ function createMockBook(overrides: Partial<Book> = {}): Book {
     publicationYear: 2024,
     isbn: '9784000000001',
     category: 'プログラミング',
+    pageCount: null,
+    language: null,
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01'),
     ...overrides,

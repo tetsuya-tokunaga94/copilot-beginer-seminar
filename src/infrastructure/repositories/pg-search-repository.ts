@@ -25,6 +25,8 @@ interface BookRow {
   publication_year: number | null;
   isbn: string;
   category: string | null;
+  page_count: number | null;
+  language: string | null;
   created_at: Date;
   updated_at: Date;
 }
@@ -46,6 +48,8 @@ function rowToBook(row: BookRow): Book {
     publicationYear: row.publication_year,
     isbn: row.isbn,
     category: row.category,
+    pageCount: row.page_count,
+    language: row.language,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };

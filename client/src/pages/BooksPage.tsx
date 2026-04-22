@@ -25,6 +25,8 @@ interface BookFormData {
   publicationYear: string;
   isbn: string;
   category: string;
+  pageCount: string;
+  language: string;
 }
 
 /** アラート情報 */
@@ -44,6 +46,8 @@ const initialFormData: BookFormData = {
   publicationYear: '',
   isbn: '',
   category: '',
+  pageCount: '',
+  language: '',
 };
 
 // ============================================
@@ -146,6 +150,8 @@ export function BooksPage(): React.ReactElement {
       publicationYear: book.publicationYear?.toString() ?? '',
       isbn: book.isbn,
       category: book.category ?? '',
+      pageCount: book.pageCount?.toString() ?? '',
+      language: book.language ?? '',
     });
     setFormErrors({});
     setEditingBook(book);
@@ -208,6 +214,10 @@ export function BooksPage(): React.ReactElement {
           : null,
         isbn: formData.isbn.trim(),
         category: formData.category.trim() || null,
+        pageCount: formData.pageCount !== ''
+          ? parseInt(formData.pageCount, 10)
+          : null,
+        language: formData.language.trim() || null,
       };
 
       if (formMode === 'create') {
@@ -356,6 +366,19 @@ export function BooksPage(): React.ReactElement {
                 label="カテゴリ"
                 value={formData.category}
                 onChange={handleFormChange('category')}
+              />
+              <FormInput
+                id="pageCount"
+                label="ページ数"
+                value={formData.pageCount}
+                onChange={handleFormChange('pageCount')}
+                type="number"
+              />
+              <FormInput
+                id="language"
+                label="言語"
+                value={formData.language}
+                onChange={handleFormChange('language')}
               />
               <div className="books-page-form-actions">
                 <button
